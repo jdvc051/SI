@@ -1,0 +1,13 @@
+/**
+</> Original base BochilGaming 
+</> Recode simple by @NeKosmic
+**/
+
+import{toPTT as e}from"../lib/converter.js";import*as t from"fs";let handler=async(o,{conn:a,usedPrefix:n,command:i,text:d})=>{let r=["https://youtube.com/channel/UC_Pp8pT9vbT15k5_-i6oseA?sub_confirmation=1","https://vm.tiktok.com/ZMLjP4RBS/","https://fb.watch/b7LOc9_LU2/","https://youtube.com/channel/UC_Pp8pT9vbT15k5_-i6oseA"],p=o.quoted?o.quoted:o,l=(o.quoted?o.quoted:o.msg).mimetype||"";if(!/video|audio/.test(l))return o.reply(`Envie \xf3 Responda un (video/audio grabado) con el comando:
+
+${n+i}`);let m=await p.download?.();if(!m)throw"No se pudo descargar el archivo";let u=await e(m,"mp4");if(!u.data)return o.reply("No se pudo convertir a audio");await a.sendMessage(o.chat,{audio:u.data,contextInfo:{externalAdReply:{title:`🎤 Convertido a grabaci\xf3n 🎶`,body:`.ptt ✓`,previewType:"PHOTO",thumbnail:t.readFileSync("./multimedia/imagenes/logo.jpg"),sourceUrl:r[Math.floor(Math.random()*r.length)]}},mimetype:"audio/mp4",fileName:`${d||"audio"}.mp3`,ptt:!0},{quoted:o}),reacMoji(o.chat,a,"⚙️",o)};handler.help=["aptt"],handler.tags=["conversor"],handler.command=/^(avn|aptt|tovn|toptt)$/i;export default handler;
+
+/**
+[_>] https://github.com/NeKosmic/
+[_>] https://gitlab.com/NeKosmic/
+**/
